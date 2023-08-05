@@ -1,10 +1,10 @@
 name: artifact_library
 description: Genshin Impact artifact score calculator
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/Hashibutogarasu/artifact-library
 
 environment:
-  sdk: '>=3.1.0-312.0.dev <4.0.0'
+  sdk: ">=3.1.0-312.0.dev <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
@@ -15,6 +15,14 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  web:
+  windows:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
