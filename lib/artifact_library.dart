@@ -156,9 +156,10 @@ enum SubOptions {
   DEF('防御力', null, null),
   ATK_percentage('攻撃力(%)', null, null),
   ATK('攻撃力', null, null),
-  ElementalMastery('元素熟知', null, null);
+  ElementalMastery('元素熟知', null, null),
+  None(null,null,null);
 
-  final String display_name;
+  final String? display_name;
   final double? value_percentage;
   final int? value;
 
