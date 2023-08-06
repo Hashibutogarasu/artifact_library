@@ -8,7 +8,7 @@ import 'package:artifact_library/artifact_library.dart';
 void main() {
   test('calculate artifact', () {
     Artifact result = Artifact(
-      Artifacts.Crimson_Witch_of_Flames.Sands_of_Eon?.name ?? '?',
+      Artifacts.Crimson_Witch_of_Flames.info.Circlet_of_Logos ?? '',
       ArtifactType.Sands_of_Eon,
       StatusDependent.DMG,
       MainOptions.ATK_percentage,

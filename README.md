@@ -5,7 +5,7 @@ Genshin Impact artifact score calculator
 Example
 ```dart
     Artifact result = Artifact(
-      Artifacts.Crimson_Witch_of_Flames.Sands_of_Eon?.name ?? '?',
+      Artifacts.Crimson_Witch_of_Flames.info.Circlet_of_Logos ?? '',
       ArtifactType.Sands_of_Eon,
       StatusDependent.DMG,
       MainOptions.ATK_percentage,
