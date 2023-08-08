@@ -1,6 +1,7 @@
 // ignore_for_file: constant_identifier_names, non_constant_identifier_names
 
 class Artifacts {
+  static Artifacts? None;
   /// 冒険者
   static Artifacts Adventurer = Artifacts(
     '冒険者',
@@ -925,7 +926,8 @@ class Artifacts {
     ),
   );
 
-  static List<Artifacts> artifacts = [
+  static List<Artifacts?> artifacts = [
+    None,
     Adventurer,
     Blizzard_Strayer,
     Brave_Heart,
