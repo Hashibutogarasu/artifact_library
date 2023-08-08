@@ -1020,18 +1020,22 @@ class ArtifactInfo {
 
 enum ArtifactType {
   /// 生の花
-  Flower_of_Life,
+  Flower_of_Life('生の花'),
 
   /// 死の羽
-  Plume_of_Death,
+  Plume_of_Death('死の羽'),
 
   /// 時の砂
-  Sands_of_Eon,
+  Sands_of_Eon('時の砂'),
 
   /// 空の杯
-  Goblet_of_Eonothem,
+  Goblet_of_Eonothem('空の杯'),
 
   /// 理の冠
-  Circlet_of_Logos,
-  None;
+  Circlet_of_Logos('理の冠'),
+  None(null);
+
+  final String? display_name;
+
+  const ArtifactType(this.display_name);
 }

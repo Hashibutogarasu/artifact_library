@@ -114,12 +114,13 @@ enum MainOptions {
   DEF_percentage('防御力(%)', 58.3, null, true),
   ATK_percentage('攻撃力(%)', 46.6, null, true),
   ATK('攻撃力', null, 311, false),
-  ElementalMastery('元素熟知', null, 187, false);
+  ElementalMastery('元素熟知', null, 187, false),
+  None(null, null, null, null);
 
-  final String display_name;
+  final String? display_name;
   final double? main_value_percentage;
   final int? main_value;
-  final bool is_percentage;
+  final bool? is_percentage;
 
   const MainOptions(
     this.display_name,
@@ -131,19 +132,24 @@ enum MainOptions {
 
 enum StatusDependent {
   /// ダメージ依存キャラ
-  DMG,
+  DMG('攻撃力'),
 
   /// 元素熟知依存キャラ
-  ElementalMastery,
+  ElementalMastery('元素熟知'),
 
   ///防御依存キャラ
-  DEF,
+  DEF('防御力'),
 
   /// 元素チャージ効率依存キャラ
-  Energy_Recharge,
+  Energy_Recharge('元素チャージ効率'),
 
   /// HP依存キャラ
-  HP;
+  HP('HP'),
+  None(null);
+
+  final String? display_name;
+
+  const StatusDependent(this.display_name);
 }
 
 enum SubOptions {
@@ -157,7 +163,7 @@ enum SubOptions {
   ATK_percentage('攻撃力(%)', null, null),
   ATK('攻撃力', null, null),
   ElementalMastery('元素熟知', null, null),
-  None(null,null,null);
+  None(null, null, null);
 
   final String? display_name;
   final double? value_percentage;
