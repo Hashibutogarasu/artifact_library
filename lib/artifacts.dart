@@ -987,6 +987,18 @@ class Artifacts {
     this.display_name_en,
     this.info,
   );
+
+  static Artifacts? fromString(String name) {
+    for (var artifact in Artifacts.artifacts) {
+      if (artifact != null) {
+        if (artifact.display_name_jp == name) {
+          return artifact;
+        }
+      }
+    }
+
+    return null;
+  }
 }
 
 class ArtifactInfo implements ArtifactBaseClass<ArtifactInfo> {
