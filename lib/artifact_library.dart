@@ -2,9 +2,12 @@
 
 library artifact_library;
 
+import 'dart:convert';
+
+import 'package:artifact_library/artifactbaseclass.dart';
 import 'package:artifact_library/artifacts.dart';
 
-class Artifact {
+class Artifact implements ArtifactBaseClass<Artifact> {
   final String artifact_name;
   final ArtifactType type;
   final StatusDependent statusDependent;
@@ -85,6 +88,48 @@ class Artifact {
 
     return result;
   }
+
+  @override
+  Map<String, dynamic> toMap() {
+    List maps = List.empty(growable: true);
+
+    for (var option in sub_option) {
+      maps.add(option.toMap());
+    }
+    return {
+      'artifact_name': artifact_name,
+      'type': type.display_name,
+      'statusDependent': statusDependent.display_name,
+      'main_option': main_option.display_name,
+      'sub_option': json.encode(maps),
+    };
+  }
+
+  @override
+  Artifact fromMap(Map map) {
+    List<SubOptionInfo> list = List.empty(growable: true);
+    for (var sub_option in (json.decode(map['sub_option']) as List)) {
+      list.add(SubOptionInfo.getInstance().fromMap(sub_option));
+    }
+    return Artifact(
+      map['artifact_name'],
+      ArtifactType.fromString(map['type']) ?? ArtifactType.None,
+      StatusDependent.fromString(map['statusDependent']) ??
+          StatusDependent.None,
+      MainOptions.fromString(map['main_option']) ?? MainOptions.None,
+      list,
+    );
+  }
+
+  static Artifact getInstance() {
+    return Artifact(
+      '',
+      ArtifactType.None,
+      StatusDependent.None,
+      MainOptions.None,
+      [],
+    );
+  }
 }
 
 class OptionInfo {
@@ -128,6 +173,16 @@ enum MainOptions {
     this.main_value,
     this.is_percentage,
   );
+
+  static MainOptions? fromString(String str) {
+    for (var mainOption in MainOptions.values) {
+      if (mainOption.display_name == str) {
+        return mainOption;
+      }
+    }
+
+    return null;
+  }
 }
 
 enum StatusDependent {
@@ -150,6 +205,16 @@ enum StatusDependent {
   final String? display_name;
 
   const StatusDependent(this.display_name);
+
+  static StatusDependent? fromString(String str) {
+    for (var status in StatusDependent.values) {
+      if (status.display_name == str) {
+        return status;
+      }
+    }
+
+    return null;
+  }
 }
 
 enum SubOptions {
@@ -174,11 +239,41 @@ enum SubOptions {
     this.value_percentage,
     this.value,
   );
+
+  static SubOptions? fromString(String str) {
+    for (var subOption in SubOptions.values) {
+      if (subOption.display_name == str) {
+        return subOption;
+      }
+    }
+
+    return null;
+  }
 }
 
-class SubOptionInfo {
+class SubOptionInfo implements ArtifactBaseClass<SubOptionInfo> {
   final SubOptions subOptionType;
   final double? value;
 
   SubOptionInfo(this.subOptionType, this.value);
+
+  @override
+  SubOptionInfo fromMap(Map map) {
+    return SubOptionInfo(
+      SubOptions.fromString(map['subOptionType'].toString()) ?? SubOptions.None,
+      double.parse(map['value']),
+    );
+  }
+
+  @override
+  Map<String, dynamic> toMap() {
+    return {
+      'subOptionType': subOptionType.display_name,
+      'value': value.toString(),
+    };
+  }
+
+  static SubOptionInfo getInstance() {
+    return SubOptionInfo(SubOptions.None, null);
+  }
 }

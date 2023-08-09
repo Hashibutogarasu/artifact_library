@@ -19,7 +19,8 @@ void main() {
         SubOptionInfo(SubOptions.CRIT_DMG, 14.8),
       ],
     );
-    print(result.artifact_name);
-    print(result.calculate());
+
+    Artifact artifact = Artifact.getInstance().fromMap(result.toMap());
+    print(artifact.toMap());
   });
 }

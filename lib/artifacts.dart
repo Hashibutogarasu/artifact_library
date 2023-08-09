@@ -1,5 +1,7 @@
 // ignore_for_file: constant_identifier_names, non_constant_identifier_names
 
+import 'package:artifact_library/artifactbaseclass.dart';
+
 class Artifacts {
   static Artifacts? None;
 
@@ -987,7 +989,7 @@ class Artifacts {
   );
 }
 
-class ArtifactInfo extends BaseClass {
+class ArtifactInfo implements ArtifactBaseClass<ArtifactInfo> {
   final String? Flower_of_Life;
   final String? Sands_of_Eon;
   final String? Plume_of_Death;
@@ -1038,6 +1040,25 @@ class ArtifactInfo extends BaseClass {
       'Goblet_of_Eonothem_asset': Goblet_of_Eonothem_asset,
     };
   }
+
+  @override
+  ArtifactInfo fromMap(Map map) {
+    return ArtifactInfo(
+      map['Flower_of_Life'],
+      map['Sands_of_Eon'],
+      map['Plume_of_Death'],
+      map['Circlet_of_Logos'],
+      map['Goblet_of_Eonothem'],
+      map['one_set_description'],
+      map['two_set_description'],
+      map['four_set_description'],
+      map['Flower_of_Life_asset'],
+      map['Sands_of_Eon_asset'],
+      map['Plume_of_Death_asset'],
+      map['Circlet_of_Logos_asset'],
+      map['Goblet_of_Eonothem_asset'],
+    );
+  }
 }
 
 enum ArtifactType {
@@ -1060,8 +1081,14 @@ enum ArtifactType {
   final String? display_name;
 
   const ArtifactType(this.display_name);
-}
 
-abstract interface class BaseClass {
-  Map<String, dynamic> toMap();
+  static ArtifactType? fromString(String str) {
+    for (var artifact in ArtifactType.values) {
+      if (artifact.display_name == str) {
+        return artifact;
+      }
+    }
+
+    return null;
+  }
 }
