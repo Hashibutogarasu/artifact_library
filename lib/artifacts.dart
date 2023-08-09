@@ -2,6 +2,7 @@
 
 class Artifacts {
   static Artifacts? None;
+
   /// 冒険者
   static Artifacts Adventurer = Artifacts(
     '冒険者',
@@ -986,7 +987,7 @@ class Artifacts {
   );
 }
 
-class ArtifactInfo {
+class ArtifactInfo extends BaseClass {
   final String? Flower_of_Life;
   final String? Sands_of_Eon;
   final String? Plume_of_Death;
@@ -1018,6 +1019,25 @@ class ArtifactInfo {
     this.Circlet_of_Logos_asset,
     this.Goblet_of_Eonothem_asset,
   );
+
+  @override
+  Map<String, dynamic> toMap() {
+    return {
+      'Flower_of_Life': Flower_of_Life,
+      'Sands_of_Eon': Sands_of_Eon,
+      'Plume_of_Death': Plume_of_Death,
+      'Circlet_of_Logos': Circlet_of_Logos,
+      'Goblet_of_Eonothem': Goblet_of_Eonothem,
+      'one_set_description': one_set_description,
+      'two_set_description': two_set_description,
+      'four_set_description': four_set_description,
+      'Flower_of_Life_asset': Flower_of_Life_asset,
+      'Sands_of_Eon_asset': Sands_of_Eon_asset,
+      'Plume_of_Death_asset': Plume_of_Death_asset,
+      'Circlet_of_Logos_asset': Circlet_of_Logos_asset,
+      'Goblet_of_Eonothem_asset': Goblet_of_Eonothem_asset,
+    };
+  }
 }
 
 enum ArtifactType {
@@ -1040,4 +1060,8 @@ enum ArtifactType {
   final String? display_name;
 
   const ArtifactType(this.display_name);
+}
+
+abstract interface class BaseClass {
+  Map<String, dynamic> toMap();
 }
