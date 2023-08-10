@@ -62,27 +62,25 @@ class Artifact implements ArtifactBaseClass<Artifact> {
 
     result = ((crit_rate ?? 0) * 2) + (crit_dmg ?? 0);
 
-    if (crit_rate != null || crit_dmg != null) {
-      if (statusDependent == StatusDependent.DMG) {
-        if (atk_percentage != null) {
-          result += (atk_percentage);
-        }
-      } else if (statusDependent == StatusDependent.ElementalMastery) {
-        if (elementalMastery != null) {
-          result += (elementalMastery * 0.4);
-        }
-      } else if (statusDependent == StatusDependent.DEF) {
-        if (def_percentage != null) {
-          result += (def_percentage);
-        }
-      } else if (statusDependent == StatusDependent.Energy_Recharge) {
-        if (energy_Recharge != null) {
-          result += (energy_Recharge);
-        }
-      } else if (statusDependent == StatusDependent.HP) {
-        if (hp_percentage != null) {
-          result += (hp_percentage);
-        }
+    if (statusDependent == StatusDependent.DMG) {
+      if (atk_percentage != null) {
+        result += (atk_percentage);
+      }
+    } else if (statusDependent == StatusDependent.ElementalMastery) {
+      if (elementalMastery != null) {
+        result += (elementalMastery * 0.4);
+      }
+    } else if (statusDependent == StatusDependent.DEF) {
+      if (def_percentage != null) {
+        result += (def_percentage);
+      }
+    } else if (statusDependent == StatusDependent.Energy_Recharge) {
+      if (energy_Recharge != null) {
+        result += (energy_Recharge);
+      }
+    } else if (statusDependent == StatusDependent.HP) {
+      if (hp_percentage != null) {
+        result += (hp_percentage);
       }
     }
 
