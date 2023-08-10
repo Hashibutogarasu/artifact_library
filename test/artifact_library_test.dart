@@ -20,7 +20,7 @@ void main() {
       ],
     );
 
-    Artifact artifact = Artifact.getInstance().fromMap(result.toMap());
-    print(artifact.toMap());
+    Artifact artifact = Artifact.getInstance().fromMap(result.toMap()) ?? Artifact.getInstance();
+    print(artifact.calculate());
   });
 }

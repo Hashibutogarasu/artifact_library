@@ -9,9 +9,9 @@ import 'package:artifact_library/artifacts.dart';
 
 class Artifact implements ArtifactBaseClass<Artifact> {
   final String artifact_name;
-  final ArtifactType type;
-  final StatusDependent statusDependent;
-  final MainOptions main_option;
+  final ArtifactType? type;
+  final StatusDependent? statusDependent;
+  final MainOptions? main_option;
   final List<SubOptionInfo> sub_option;
 
   Artifact(
@@ -96,15 +96,15 @@ class Artifact implements ArtifactBaseClass<Artifact> {
     }
     return {
       'artifact_name': artifact_name,
-      'type': type.display_name,
-      'statusDependent': statusDependent.display_name,
-      'main_option': main_option.display_name,
+      'type': type?.display_name ?? 'None',
+      'statusDependent': statusDependent?.display_name ?? 'None',
+      'main_option': main_option?.display_name ?? 'None',
       'sub_option': json.encode(maps),
     };
   }
 
   @override
-  Artifact fromMap(Map map) {
+  Artifact? fromMap(Map map) {
     List<SubOptionInfo> list = List.empty(growable: true);
     for (var sub_option in (json.decode(map['sub_option']) as List)) {
       list.add(SubOptionInfo.getInstance().fromMap(sub_option));
