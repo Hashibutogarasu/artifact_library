@@ -887,6 +887,27 @@ class Artifacts {
     ),
   );
 
+  //砂上の楼閣の史話
+  static Artifacts Desert_Pavilion_Chronicle = Artifacts(
+    '砂上の楼閣の史話',
+    'Desert Pavilion Chronicle',
+    ArtifactInfo(
+      '諸王の都の始まり',
+      '没落迷途のコア',
+      '黄金の邦国の結末',
+      '流砂の嗣君の遺宝',
+      '迷酔の長夢の守護',
+      null,
+      '風元素ダメージ+15%。',
+      '重撃が敵に命中すると、該当キャラクターの通常攻撃の攻撃速度+10%、通常攻撃、重撃および落下攻撃ダメージ+40%、継続時間15秒。',
+      'https://upload-static.hoyoverse.com/hoyolab-wiki/2022/12/09/132746206/b86d9fd7cf57937a021c9c68c9b185ed_6766784409943777998.png?x-oss-process=image%2Fformat%2Cwebp',
+      'https://upload-static.hoyoverse.com/hoyolab-wiki/2022/12/09/132746206/88ca09ebc7ed0069e8e8de5516bea8c7_4377178599124022862.png?x-oss-process=image%2Fformat%2Cwebp',
+      'https://upload-static.hoyoverse.com/hoyolab-wiki/2022/12/09/132746206/6fdd4f75d233d1690e845a2db65ba433_463306475248231916.png?x-oss-process=image%2Fformat%2Cwebp',
+      'https://upload-static.hoyoverse.com/hoyolab-wiki/2022/12/09/132746206/999a78b73235c08ca4a0664a23e7079f_3924773614439599697.png?x-oss-process=image%2Fformat%2Cwebp',
+      'https://upload-static.hoyoverse.com/hoyolab-wiki/2022/12/09/132746206/0c319d4054751adc08be47eee0ebad53_2153031889211502824.png?x-oss-process=image%2Fformat%2Cwebp',
+    ),
+  );
+
   /// 水仙の夢
   static Artifacts Nymphs_Dream = Artifacts(
     '水仙の夢',
@@ -973,6 +994,7 @@ class Artifacts {
     Deepwood_Memories,
     Gilded_Dreams,
     Flower_of_Paradise_Lost,
+    Desert_Pavilion_Chronicle,
     Nymphs_Dream,
     Vourukashas_Glow,
   ];
