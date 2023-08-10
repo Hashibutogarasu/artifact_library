@@ -158,6 +158,12 @@ enum MainOptions {
   ATK_percentage('攻撃力(%)', 46.6, null, true),
   ATK('攻撃力', null, 311, false),
   ElementalMastery('元素熟知', null, 187, false),
+  Anemo_Damage('風元素ダメージ', 46.6, null, true),
+  Pyro_Damage('炎元素ダメージ', 46.6, null, true),
+  Electro_Damage('雷元素ダメージ', 46.6, null, true),
+  Cryo_Damage('氷元素ダメージ', 46.6, null, true),
+  Dendro_Damage('草元素ダメージ', 46.6, null, true),
+  Hydro_Damage('水元素ダメージ', 46.6, null, true),
   None(null, null, null, null);
 
   final String? display_name;
