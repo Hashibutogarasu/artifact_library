@@ -82,6 +82,10 @@ class Artifact implements ArtifactBaseClass<Artifact> {
       if (hp_percentage != null) {
         result += (hp_percentage);
       }
+    } else {
+      if (atk_percentage != null) {
+        result += (atk_percentage);
+      }
     }
 
     return result;
