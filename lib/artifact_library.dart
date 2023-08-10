@@ -121,7 +121,7 @@ class Artifact implements ArtifactBaseClass<Artifact> {
 
   static Artifact getInstance() {
     return Artifact(
-      'None',
+      Artifacts.None?.display_name_jp ?? 'None',
       ArtifactType.None,
       StatusDependent.None,
       MainOptions.None,
