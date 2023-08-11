@@ -42,6 +42,10 @@ class Character implements ArtifactBaseClass<Character> {
       'element': element.display_name_jp,
     };
   }
+
+  Character getInstance(){
+    return const Character('', '', '', 0, '', Elements.None);
+  }
 }
 
 enum Elements {
