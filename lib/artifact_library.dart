@@ -22,6 +22,26 @@ class Artifact implements ArtifactBaseClass<Artifact> {
     this.sub_option,
   );
 
+  String? getImagebyType(ArtifactType type) {
+    Artifacts? artifact = Artifacts.fromString(artifact_name);
+
+    if (artifact != null) {
+      String? url = switch (type) {
+        ArtifactType.Circlet_of_Logos => artifact.info.Circlet_of_Logos,
+        ArtifactType.Flower_of_Life => artifact.info.Flower_of_Life_asset,
+        ArtifactType.Goblet_of_Eonothem =>
+          artifact.info.Goblet_of_Eonothem_asset,
+        ArtifactType.Plume_of_Death => artifact.info.Plume_of_Death_asset,
+        ArtifactType.Sands_of_Eon => artifact.info.Sands_of_Eon_asset,
+        ArtifactType.None => null,
+      };
+
+      return url;
+    }
+
+    return null;
+  }
+
   double calculate() {
     if (sub_option.length > 4) {
       throw Exception('The number of suboptions must be no more than 4');
