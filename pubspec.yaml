@@ -1,6 +1,6 @@
 name: artifact_library
 description: Genshin Impact artifact score calculator
-version: 0.2.2
+version: 0.2.4
 homepage: https://github.com/Hashibutogarasu/artifact-library
 
 environment:
@@ -10,6 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_dotenv: ^5.1.0
+  html: ^0.15.4
+  http: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -32,8 +35,7 @@ flutter:
 
   # To add assets to your package, add an assets section, like this:
   # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  #   - .env
   #
   # For details regarding assets in packages, see
   # https://flutter.dev/assets-and-images/#from-packages

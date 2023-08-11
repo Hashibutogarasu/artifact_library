@@ -168,6 +168,7 @@ enum MainOptions {
   Cryo_Damage('氷元素ダメージ', 46.6, null, true),
   Dendro_Damage('草元素ダメージ', 46.6, null, true),
   Hydro_Damage('水元素ダメージ', 46.6, null, true),
+  Geo_Damage('岩元素ダメージ', 46.6, null, true),
   None(null, null, null, null);
 
   final String? display_name;
