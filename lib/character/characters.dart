@@ -722,9 +722,19 @@ enum Characters {
       '薬舗「不卜廬」の薬採り兼弟子、紙のように白い顔色で不死身。口数が少なく、あまり表情がない。',
       Elements.None,
     ),
-  );
+  ),
+  None(Character('', '', '', 0, '', Elements.None));
 
   final Character character;
 
   const Characters(this.character);
+
+  static Characters fromName(String name) {
+    for (var character in Characters.values) {
+      if (character.character.charactername == name) {
+        return character;
+      }
+    }
+    return Characters.None;
+  }
 }
