@@ -22,7 +22,7 @@ class Artifact implements ArtifactBaseClass<Artifact> {
     this.sub_option,
   );
 
-  String? getImagebyType(ArtifactType type) {
+  static String? getImagebyType(ArtifactType type, String artifact_name) {
     Artifacts? artifact = Artifacts.fromString(artifact_name);
 
     if (artifact != null) {
