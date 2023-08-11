@@ -1,6 +1,6 @@
 name: artifact_library
 description: Genshin Impact artifact score calculator
-version: 0.3.1
+version: 0.3.2
 homepage: https://github.com/Hashibutogarasu/artifact-library
 
 environment:

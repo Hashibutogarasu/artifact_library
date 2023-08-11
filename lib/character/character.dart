@@ -43,7 +43,7 @@ class Character implements ArtifactBaseClass<Character> {
     };
   }
 
-  Character getInstance(){
+  static Character getInstance(){
     return const Character('', '', '', 0, '', Elements.None);
   }
 }
