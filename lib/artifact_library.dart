@@ -27,7 +27,7 @@ class Artifact implements ArtifactBaseClass<Artifact> {
 
     if (artifact != null) {
       String? url = switch (type) {
-        ArtifactType.Circlet_of_Logos => artifact.info.Circlet_of_Logos,
+        ArtifactType.Circlet_of_Logos => artifact.info.Circlet_of_Logos_asset,
         ArtifactType.Flower_of_Life => artifact.info.Flower_of_Life_asset,
         ArtifactType.Goblet_of_Eonothem =>
           artifact.info.Goblet_of_Eonothem_asset,
