@@ -276,13 +276,6 @@ enum SubOptions {
   ATK_percentage('攻撃力(%)', null, null),
   ATK('攻撃力', null, null),
   ElementalMastery('元素熟知', null, null),
-  Anemo_Damage('風元素ダメージ', null, null),
-  Pyro_Damage('炎元素ダメージ', null, null),
-  Electro_Damage('雷元素ダメージ', null, null),
-  Cryo_Damage('氷元素ダメージ', null, null),
-  Dendro_Damage('草元素ダメージ', null, null),
-  Hydro_Damage('水元素ダメージ', null, null),
-  Geo_Damage('岩元素ダメージ', null, null),
   None(null, null, null);
 
   final String? display_name;
