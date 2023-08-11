@@ -173,13 +173,13 @@ class Artifact implements ArtifactBaseClass<Artifact> {
   }
 }
 
-class OptionInfo {
+class OptionInfo implements ArtifactBaseClass<OptionInfo> {
   final String display_name;
   final double? main_value_percentage;
   final int? main_value;
   final double? value_percentage;
   final int? value;
-  final bool is_percentage;
+  final bool? is_percentage;
 
   OptionInfo(
     this.display_name,
@@ -189,6 +189,30 @@ class OptionInfo {
     this.value,
     this.is_percentage,
   );
+
+  @override
+  OptionInfo? fromMap(Map map) {
+    return OptionInfo(
+      map['display_name'],
+      double.tryParse(map['main_value_percentage']),
+      int.tryParse(map['main_value']),
+      double.tryParse(map['value_percentage']),
+      int.tryParse(map['value']),
+      bool.tryParse(map['is_percentage']),
+    );
+  }
+
+  @override
+  Map<String, dynamic> toMap() {
+    return {
+      'display_name': display_name,
+      'main_value_percentage': main_value_percentage,
+      'main_value': main_value,
+      'value_percentage': value_percentage,
+      'value': value,
+      'is_percentage': is_percentage,
+    };
+  }
 }
 
 enum MainOptions {

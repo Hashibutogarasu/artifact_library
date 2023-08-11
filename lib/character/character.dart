@@ -1,6 +1,8 @@
 // ignore_for_file: constant_identifier_names, non_constant_identifier_names
 
-class Character {
+import 'package:artifact_library/artifactbaseclass.dart';
+
+class Character implements ArtifactBaseClass<Character> {
   final String charactername;
   final String avaterURL;
   final String iconURL;
@@ -16,6 +18,30 @@ class Character {
     this.characterdescription,
     this.element,
   );
+
+  @override
+  Character? fromMap(Map map) {
+    return Character(
+      map['charactername'],
+      map['avaterURL'],
+      map['iconURL'],
+      map['rare'],
+      map['characterdescription'],
+      map['element'],
+    );
+  }
+
+  @override
+  Map<String, dynamic> toMap() {
+    return {
+      'charactername': charactername,
+      'avaterURL': avaterURL,
+      'iconURL': iconURL,
+      'rare': rare,
+      'characterdescription': characterdescription,
+      'element': element.display_name_jp,
+    };
+  }
 }
 
 enum Elements {
@@ -31,10 +57,10 @@ enum Elements {
   final String display_name_jp;
 
   const Elements(this.display_name_jp);
-  
-  static Elements fromname(String name){
-    for(var element in Elements.values){
-      if(name == element.display_name_jp){
+
+  static Elements fromname(String name) {
+    for (var element in Elements.values) {
+      if (name == element.display_name_jp) {
         return element;
       }
     }
